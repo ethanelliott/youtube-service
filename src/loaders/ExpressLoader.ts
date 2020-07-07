@@ -9,7 +9,7 @@ import {LogMiddleware} from '../middleware/LogMiddleware';
 import {SecurityMiddleware} from '../middleware/SecurityMiddleware';
 import {ErrorMiddleware} from '../middleware/ErrorMiddleware';
 // Controllers
-import {YoutubeController} from '../api/Controllers/YoutubeController';
+import {YoutubeController} from '../api/controllers/YoutubeController';
 import {SearchController} from '../api/controllers/SearchController';
 
 
