@@ -3,7 +3,7 @@ import {MicroframeworkLoader, MicroframeworkSettings} from 'microframework-w3tec
 import {createExpressServer} from 'routing-controllers';
 
 import {env} from '../env';
-import {log} from '../util/Log';
+import {log} from '../util/log';
 // Middleware
 import {LogMiddleware} from '../middleware/LogMiddleware';
 import {SecurityMiddleware} from '../middleware/SecurityMiddleware';
