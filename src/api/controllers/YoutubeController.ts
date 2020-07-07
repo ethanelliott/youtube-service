@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import {Controller, Get, Param} from 'routing-controllers';
 import {YouTubeMetadataService} from '../services/YouTubeMetadataService';
+import {YoutubeAudio} from '../types/YoutubeAudio';
 
 @Controller('/yt')
 export class YoutubeController {
@@ -15,7 +16,7 @@ export class YoutubeController {
     }
 
     @Get('/:video_id/audio')
-    public async getAudioOnly(@Param('video_id') videoId: string): Promise<any> {
+    public async getAudioOnly(@Param('video_id') videoId: string): Promise<YoutubeAudio> {
         return await this.youTubeMetadataService.getBestAudio(videoId);
     }
 }

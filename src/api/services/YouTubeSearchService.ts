@@ -1,11 +1,6 @@
 import {Service} from 'typedi';
-import youtubeSearch from "youtube-search";
+import axios from 'axios';
 import {env} from '../../env';
-
-const opts: youtubeSearch.YouTubeSearchOptions = {
-    maxResults: 10,
-    key: env.youtube.key
-};
 
 @Service()
 export class YouTubeSearchService {
@@ -14,6 +9,12 @@ export class YouTubeSearchService {
     }
 
     public async search(query: string) {
-        return await youtubeSearch(query, opts);
+        const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${query}&part=snippet&maxResults=10&type=video,audio&key=${env.youtube.key}`, {
+            headers: {
+                'Authorization': env.youtube.key,
+                'Accept': 'application/json'
+            }
+        });
+        return res.data.items;
     }
 }
